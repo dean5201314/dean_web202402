@@ -6,9 +6,6 @@ function dd($data)
     echo "</pre>";
 }
 
-
-
-
 $mobileArr = [
     [
         'id' => 1,
