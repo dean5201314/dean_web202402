@@ -58,13 +58,11 @@
           // console.log('res.records', res.records);
           // console.log('res["records"]', res['records']);
           // console.log('res.records.datasetDescription', res.records.datasetDescription);
+          // console.log('nowLocation', nowLocation);
           let nowLocation = res.records.location;
-          let nowLocationMaxT = res.records.location[1].weatherElement[4]['time'][0]['parameter']['parameterName'];
-          console.log('nowLocationMaxT', nowLocationMaxT);
-          console.log('nowLocation', nowLocation);
           $.each(nowLocation, function (key, value) {
-            // console.log('key', key);
-            // console.log('value', value);
+            console.log('key', key);
+            console.log('value', value);
             // console.log('value.locationName', value.locationName);
             let nowID = key + 1;
             let stringID = nowID.toString().padStart(2, "0");
@@ -76,18 +74,15 @@
               <tr>
                 <td class="text-center">${stringID}</td>
                 <td class="text-start">${nowLocationName}</td>
-                <td class="text-start">${12} - ${18} °C</td>
               </tr>
             `;
 
-            // 1 新北市 12-18 °C
-
-            // console.log('nowLocationName', nowLocationName);
-            // $('tbody').append(content);
+            console.log('nowLocationName', nowLocationName);
+            $('tbody').append(content);
           });
 
           // run datatable
-          // myTable.DataTable();
+          myTable.DataTable();
 
         }
       });
