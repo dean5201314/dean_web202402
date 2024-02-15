@@ -47,7 +47,7 @@
           </div>
           <hr>
           <div class="text-danger mt-3">
-            <span id="scoreSpan">分數</span>
+            分數
           </div>
         </div>
       </div>
@@ -59,13 +59,12 @@
       <div class="row">
         <div class="col-6">
           <div class="d-grid gap-2 mt-4">
-            <button class="btn btn-primary" type="button" id="startBtn">開始</button>
-            <button class="btn btn-primary" type="button" id="shootBtn">投籃</button>
+            <button class="btn btn-primary" type="button">開始</button>
           </div>
         </div>
         <div class="col-6">
           <div class="d-grid gap-2 mt-4">
-            <button class="btn btn-primary" type="button" id="resetBtn">重置</button>
+            <button class="btn btn-primary" type="button">重置</button>
           </div>
         </div>
       </div>
@@ -93,29 +92,6 @@
 
   <script>
     $(document).ready(function () {
-      const scoreSpan = $('#scoreSpan');
-      const startBtn = $('#startBtn');
-      const shootBtn = $('#shootBtn');
-      const resetBtn = $('#resetBtn');
-      let score = 0;
-      shootBtn.hide();
-
-      startBtn.click(function (e) {
-        scoreSpan.text(score);
-        startBtn.hide();
-        shootBtn.show();
-      });
-
-      shootBtn.click(function (e) { 
-        // score += 2;
-        score += 3;
-        scoreSpan.text(score);
-      });
-
-      resetBtn.click(function (e) { 
-        score = 0;
-        scoreSpan.text(score);
-      });
 
     });
 
