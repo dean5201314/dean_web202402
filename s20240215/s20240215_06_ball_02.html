@@ -43,9 +43,7 @@
             歷史最高分數
           </h3>
           <div class="text-primary mt-3">
-            <span id="timeSpan">
-              倒數計時
-            </span>
+            倒數計時
           </div>
           <hr>
           <div class="text-danger mt-3">
@@ -96,35 +94,25 @@
   <script>
     $(document).ready(function () {
       const scoreSpan = $('#scoreSpan');
-      const timeSpan = $('#timeSpan');
       const startBtn = $('#startBtn');
       const shootBtn = $('#shootBtn');
       const resetBtn = $('#resetBtn');
       let score = 0;
-      let nowTime = 10;
       shootBtn.hide();
 
       startBtn.click(function (e) {
         scoreSpan.text(score);
         startBtn.hide();
         shootBtn.show();
-
-        const myInterval = setInterval(() => {
-          if(nowTime <= 0){
-            clearInterval(myInterval);
-          }
-          timeSpan.text(nowTime);
-          nowTime -= 1;
-        }, 1000);
       });
 
-      shootBtn.click(function (e) {
+      shootBtn.click(function (e) { 
         // score += 2;
         score += 3;
         scoreSpan.text(score);
       });
 
-      resetBtn.click(function (e) {
+      resetBtn.click(function (e) { 
         score = 0;
         scoreSpan.text(score);
       });
