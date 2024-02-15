@@ -13,14 +13,26 @@
 </head>
 
 <body>
-
-  <div class="container" id="myContainer">
-    <div class="row">
-      <div class="col">id</div>
-      <div class="col">name</div>
-    </div>
-
-  </div>
+  <h3 class="text-center">每月國際主要股價指數</h3>
+<table class="display" id="myTable">
+  <thead>
+    <tr>
+      <th width="15%" class="text-center">月份</th>
+      <th width="8%" class="text-start">台灣-加權指數</th>
+      <th width="8%" class="text-start">台灣-上櫃指數</th>
+      <th width="8%" class="text-start">美國-那斯達克指數</th>
+      <th width="8%" class="text-start">美國-道瓊工業指數</th>
+      <th width="8%" class="text-start">日本-日經225指數</th>
+      <th width="8%" class="text-start">新加坡-海峽時報指數</th>
+      <th width="8%" class="text-start">南韓-綜合指數</th>
+      <th width="8%" class="text-start">倫敦-金融時報指數</th>
+      <th width="8%" class="text-start">中國-上海綜合指數</th>
+      <th width="8%" class="text-start">中國-香港恆生指數</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
@@ -32,7 +44,6 @@
       // let url = 'https://data.taipei/api/v1/dataset/5048d475-7642-43ee-ac6f-af0a368d63bf?scope=resourceAquire';
       // let url = './s20240215_04_php_zoo.php';
       let url = 'http://localhost/s20240215_04_php_zoo.php';
-      const myContainer = $('#myContainer');
       $.ajax({
         type: "get",
         url: url,
@@ -40,30 +51,6 @@
         dataType: "json",
         success: function (res) {
           console.log('res', res);
-          let data = res.result.results;
-          console.log('data', data);
-          let content = '';
-          $.each(data, function (key, value) {
-            let locationName = value.s_location;
-            console.log('locationName', locationName);
-            if (locationName == '大門廣場') {
-              content = `
-            <div class="row">
-              <div class="col">${key + 1}</div>
-              <div class="col text-danger">${locationName}</div>
-            </div>
-            `;
-            } else {
-              content = `
-            <div class="row">
-              <div class="col">${key + 1}</div>
-              <div class="col">${locationName}</div>
-            </div>
-            `;
-            }
-
-            myContainer.append(content);
-          });
         }
       });
     });
